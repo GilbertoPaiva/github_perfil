@@ -1,16 +1,41 @@
-# React + Vite
+# Projeto: Lista de Repositórios do GitHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação React (Vite) que mostra o perfil e a lista de repositórios públicos de um usuário do GitHub. Inclui carregamento simples e validação mínima do nome de usuário.
 
-Currently, two official plugins are available:
+## Requisitos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Node.js 18+ (recomendado)
+- npm
 
-## React Compiler
+## Instalação
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+```
 
-## Expanding the ESLint configuration
+## Execução em desenvolvimento
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm run dev
+```
+
+Abra o endereço indicado pelo Vite (geralmente http://localhost:5173).
+
+## Uso
+
+1. Digite um nome de usuário do GitHub no campo de texto.
+2. Ao sair do campo (blur) o app busca os repositórios do usuário.
+3. Enquanto carrega, exibe “Carregando...”. Quando finalizar, mostra a lista com nome, linguagem e link para o GitHub.
+4. Apenas nomes com mais de 4 caracteres disparam a busca.
+
+## Estrutura principal
+
+- src/App.jsx: input do usuário e montagem dos componentes.
+- src/components/Perfil: avatar e nome do usuário.
+- src/components/ReposList: busca na API do GitHub e renderização da lista (com estado de carregamento).
+- src/components/Formulario: componente de exemplo de formulário (não exibido por padrão).
+
+## Notas
+
+- A API do GitHub é pública; para uso intensivo considere autenticação/token para evitar limites de rate.
+- Estilos adicionais estão em `src/components/ReposList/ReposList.module.css` e arquivos `.css` adjacentes.
